@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Header Navigation Menu With Scroll Indicator Bar - Html, Css & Javascript</title>
+    <link rel="stylesheet" href="/css/style_main.css">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="nav-bar">
+            <a href="" class="logo"></i><i class="uil uil-map"></i>BUMAP </a>
+            <div class="navigation">
+                <div class="nav-items">
+                    <i class="uil uil-times nav-close-btn"></i>
+                    <a href="page_zone_A.html"><i class="uil uil-compass"></i>Map</a>
+                    <a href="Timetable.html"><i class="uil uil-clock"></i>Timetable</a>
+                    <a href="page_deverloper.html"><i class="uil uil-user"></i>Developer</a>
+
+                </div>
+            </div>
+            <i class="uil uil-apps nav-menu-btn"></i>
+        </div>
+        <div class="scroll-indicator-container">
+            <div class="scroll-indicator-bar"></div>
+        </div>
+    </header>
+
+    <body>
+        <div class="slider">
+            <div class="load">
+            </div>
+            <div class="content2">
+                <div class="principal">
+                    <h1>WELCOME</h1>
+                    <p>To BUMAP By BU : Bangkok University.</p>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script>
+        //Javacript for the scroll indicator bar
+        window.addEventListener("scroll", () => {
+            const indicatorBar = document.querySelector(".scroll-indicator-bar");
+
+            const pageScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrollValue = (pageScroll / height) * 100;
+
+            indicatorBar.style.width = scrollValue + "%";
+        });
+
+        //Responsive navigation menu toggle
+        const menuBtn = document.querySelector(".nav-menu-btn");
+        const closeBtn = document.querySelector(".nav-close-btn");
+        const navigation = document.querySelector(".navigation");
+
+        menuBtn.addEventListener("click", () => {
+            navigation.classList.add("active");
+        });
+
+        closeBtn.addEventListener("click", () => {
+            navigation.classList.remove("active");
+        });
+    </script>
+
+</html>
